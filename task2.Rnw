@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\begin{document}
+
+<<>>=
+dt<-read.csv(file.choose(),header=T,sep=",")
+head(dt)
+tail(dt)
+str(dt)                           #Getting the tyoe of variables
+summary(dt)                       #Summary of the irish dataset
+
+
+#Using K-means methi=ods for clustering data
+Data<-dt[2:5]
+str(Data)
+plot(Data,main="The width and length of sepal and petal",pch=20,cex=2)
+
+#Caluculating the optimum No. of clusters
+tot_wss<-c()
+for(i in 1:15)
+{
+  cl<-kmeans(Data,centers=i)
+  tot_wss[i]<-cl$tot_withinss
+}
+plot(x=1:15,col="Blue",y=tot_wss,type="b",
+     xlab="Number of clusters",
+     ylab = "within grop of sum of squares")
+#By seeing graph we can say optimmun No of cluster is because
+##Line changes immediately after cluster 2
+
+
+##Peform K-means with 2 cluster
+km1=kmeans(Data, 2, nstart=100)
+print(km1)
+plot(Data,col=(km1$cluster), main="K-Means result with 2 cluster,pch=20,cex=2")
+
+
+
+@
+
+
+
+\end{document}
