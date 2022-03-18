@@ -1,0 +1,16 @@
+\documentclass{article}
+
+\begin{document}
+
+<<>>=
+data<-read.csv(file.choose(),header = T,sep=",")
+x<-data$Hours
+y<-data$Scores
+model<-lm(y~x)
+model
+summary(model)
+plot(x,y,col="red")
+abline(model,col="yellow")
+result<-predict(data,data.frame(Hours=9.5))
+result
+\end{document}
