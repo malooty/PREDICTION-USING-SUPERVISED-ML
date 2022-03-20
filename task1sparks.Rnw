@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\begin{document}
+
+<<>>=
+#importing dataset
+data<-read.csv(file.choose(),header = T,sep=",")
+x<-data$Hours
+x
+y<-data$Scores
+y
+#linear model
+model<-lm(x~y)
+model
+#summary
+summary(model)
+#plotting
+plot(x,y,col="red")
+abline(model,col="yellow")
+#predict<-slope+intercept(x)
+result=-0.006286+0.097480*9.5
+result
+
+
+
+
+
+\end{document}
