@@ -3,6 +3,8 @@
 \begin{document}
 
 <<>>=
+#TO PREDICT THE PERCENTAGE OF A STUDENT BASED ON STUDY HOURS
+#BY MALAVIKA SMITHA
 #importing dataset
 data<-read.csv(file.choose(),header = T,sep=",")
 x<-data$Hours
